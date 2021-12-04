@@ -5,7 +5,7 @@ services:
   - docker
 
 before_install:
-  - docker build -t MrNanio/lab8 -f Dockerfile.dev .
+  - docker build -t mrnanio/lab8 -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true MrNanio/lab8 npm run test
