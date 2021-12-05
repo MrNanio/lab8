@@ -6,22 +6,28 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+# Dockerfile w wersji dev
+Budowa:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`docker build -f Dockerfile.dev -t local/lab8:1 .`
 
-## Build
+Uruchomienie:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+`docker run -it -p 4200:4200 -v /app/node_modules -v ${pwd}:/app local/lab8:1`
 
-## Running unit tests
+# Dockerfile w wersji prod
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Budowa:
 
-## Running end-to-end tests
+`docker build -t local/lab8:2 .`
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Uruchomienie:
 
-## Further help
+`docker run -d -p 4200:80 local/lab8:2`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+lub 
+
+`docker compose up`
+# Travis CI
+
+https://app.travis-ci.com/github/MrNanio/lab8/builds
